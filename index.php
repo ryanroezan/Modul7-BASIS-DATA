@@ -21,11 +21,11 @@ if (isset($_GET['op'])) {
 } else {
     $op = "";
 }
-if($op == 'delete'){
+if ($op == 'delete') {
     $id = $_GET['id'];
     $sql1 = "delete from mahasiswa where id = '$id' ";
     $q1 = mysqli_query($koneksi, $sql1);
-    if($q1){
+    if ($q1) {
         $sukses = "Berhasil hapus data";
     } else {
         $error = "Gagal menghapus data";
@@ -114,7 +114,7 @@ if (isset($_POST["simpan"])) { //untuk create
                         <?php echo $error ?>
                     </div>
                     <?php
-                    header("refresh:3;url=index.php");//5 : detik
+                    header("refresh:3;url=index.php"); //5 : detik
                 }
                 ?>
 
@@ -125,49 +125,58 @@ if (isset($_POST["simpan"])) { //untuk create
                         <?php echo $sukses ?>
                     </div>
                     <?php
-                    header("refresh:3;url=index.php");//5 : detik
+                    header("refresh:3;url=index.php"); //5 : detik
                 }
                 ?>
                 <form action="" method="POST">
-                    <div class="mb-3 row">
-                        <label for="nim" class="col-sm-2 col-form-label">NIM</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nim" name="nim" value="<?php echo $nim ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="nama" class="col-sm-2 col-form-label">Nama</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $nama ?>">
-                        </div>
+                    <div class="card">
                         <div class="mb-3 row">
-                            <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                            <label for="nim" class="col-sm-2 col-form-label">NIM</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="alamat" name="alamat"
-                                    value="<?php echo $alamat ?>">
+                                <input type="text" class="form-control" id="nim" name="nim" value="<?php echo $nim ?>">
                             </div>
-                            <div class="mb-3 row">
-                                <label for="fakultas" class="col-sm-2 col-form-label">Fakultas</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control" name="fakultas" id="fakultas">
-                                        <option value="">- Pilih Fakultas - </option>
-                                        <option value="saintek" <?php if ($fakultas == "saintek")
-                                            echo "selected" ?>>
-                                                saintek</option>
-                                            <option value="soshum" <?php if ($fakultas == "soshum")
-                                            echo "selected" ?>>soshum
-                                            </option>
-                                        </select>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nama" name="nama"
+                                    value="<?php echo $nama ?>">
+                            </div>
+                            <div class="card">
+                                <div class="mb-3 row">
+                                    <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="alamat" name="alamat"
+                                            value="<?php echo $alamat ?>">
                                     </div>
-                                    <div class="col12">
-                                        <input type="submit" name="simpan" value="Simpan Data" class="btn btn-primary" />
-                                    </div>
+                                    <div class="card">
+                                        <div class="mb-3 row">
+                                            <label for="fakultas" class="col-sm-2 col-form-label">Fakultas</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="fakultas" id="fakultas">
+                                                    <option value="">- Pilih Fakultas - </option>
+                                                    <option value="pendidikan" <?php if ($fakultas == "pendidikan")
+                                                        echo "selected" ?>>pendidikan</option>
+                                                        <option value="teknik" <?php if ($fakultas == "teknik")
+                                                        echo "selected" ?>>teknik</option>
+                                                        <option value="hukum" <?php if ($fakultas == "hukum")
+                                                        echo "selected" ?>>hukum</option>
+                                                        <option value="keislaman" <?php if ($fakultas == "keislaman")
+                                                        echo "selected" ?>>keislaman</option>
+                                                    </select>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="col12">
+                                                        <input type="submit" name="simpan" value="Simpan Data"
+                                                            class="btn btn-primary" />
+                                                    </div>
                     </form>
                 </div>
                 <!-- untuk mengeluarkan data -->
                 <div class="card">
                     <div class="card-header text-white bg-secondary">
-                        Data mahasiswa
+                        Data Mahasiswa Universitas Trunojoyo Madura
                     </div>
                     <div class="card-body">
                         <table class="table">
@@ -182,17 +191,17 @@ if (isset($_POST["simpan"])) { //untuk create
                                 </tr>
                             <tbody>
                                 <?php
-                                        $sql2 = "select * from mahasiswa order by id desc";
-                                        $q2 = mysqli_query($koneksi, $sql2);
-                                        $urut = 1;
-                                        while ($r2 = mysqli_fetch_array($q2)) {
-                                            $id = $r2["id"];
-                                            $nim = $r2["nim"];
-                                            $nama = $r2["nama"];
-                                            $alamat = $r2["alamat"];
-                                            $fakultas = $r2["fakultas"];
+                                                    $sql2 = "select * from mahasiswa order by id desc";
+                                                    $q2 = mysqli_query($koneksi, $sql2);
+                                                    $urut = 1;
+                                                    while ($r2 = mysqli_fetch_array($q2)) {
+                                                        $id = $r2["id"];
+                                                        $nim = $r2["nim"];
+                                                        $nama = $r2["nama"];
+                                                        $alamat = $r2["alamat"];
+                                                        $fakultas = $r2["fakultas"];
 
-                                            ?>
+                                                        ?>
                                 <tr>
                                     <th scope="row">
                                         <?php echo $urut++ ?>
@@ -212,15 +221,16 @@ if (isset($_POST["simpan"])) { //untuk create
                                     <td scope="row">
                                         <a href="index.php?op=edit&id=<?php echo $id ?>"><button type="button"
                                                 class="btn btn-warning">Edit</button></a>
-                                        <a href="index.php?op=delete&id=<?php echo $id ?>" onclick="return confirm('Yakin mau hapus data ?')"><button type="button"
+                                        <a href="index.php?op=delete&id=<?php echo $id ?>"
+                                            onclick="return confirm('Yakin mau hapus data ?')"><button type="button"
                                                 class="btn btn-danger">Delete</button></a>
 
-                                    
+
                                     </td>
                                 </tr>
                                 <?php
-                                        }
-                                        ?>
+                                                    }
+                                                    ?>
                         </tbody>
                         </thead>
                     </table>
